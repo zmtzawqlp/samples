@@ -51,7 +51,42 @@ class SingleFlutterViewController: FlutterViewController, DataModelObserver {
         let vc = storyboard.instantiateViewController(withIdentifier: "NativeViewCount")
         navController.pushViewController(vc, animated: true)
         result(nil)
-      } else {
+      } 
+      else if call.method == "ChangePageHeight" {
+          result(nil)
+          
+          UIView.animate(withDuration: 2) {
+              var frame = self.view.frame
+            frame.size.height = 400
+              self.view.frame = frame
+          }
+          //let animator = UIViewPropertyAnimator(duration: 2, curve: .easeInOut) {
+          //    var frame = self.view.frame
+          //    frame.size.height = 400
+          //    self.view.frame = frame
+         // }
+         // animator.startAnimation()
+          
+          //let animation = CABasicAnimation(keyPath: "bounds.size.height")
+          //animation.fromValue = self.view.bounds.size.height
+         // animation.toValue = 400
+         // animation.duration = 2
+         // animation.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
+         // self.view.layer.add(animation, forKey: "bounds.size.height")
+
+          // 更新 view 的实际 frame
+         // var frame = self.view.frame
+         // frame.size.height = 400
+         //s self.view.frame = frame
+          
+          //UIView.animate(withDuration: 2) {
+          //    var frame = self.view.frame
+          //    frame.size.height = 400
+         //     self.view.frame = frame
+         // }
+         
+       }
+      else {
         result(FlutterMethodNotImplemented)
       }
     }

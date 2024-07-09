@@ -96,6 +96,12 @@ class _MyHomePageState extends State<MyHomePage> {
               },
               child: const Text('Next'),
             ),
+            TextButton(
+              onPressed: () {
+                _channel.invokeMethod<void>("ChangePageHeight", 200);
+              },
+              child: const Text('ChangePageHeight'),
+            ),
             ElevatedButton(
               onPressed: () async {
                 // Use the url_launcher plugin to open the Flutter docs in
